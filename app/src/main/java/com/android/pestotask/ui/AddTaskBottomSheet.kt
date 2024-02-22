@@ -70,6 +70,8 @@ class AddTaskBottomSheet  : BottomSheetDialogFragment() {
                 Toast.makeText(this.requireContext(), "Description is empty", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
+
+            //object creation of a task
             val task = TaskNote(
                 id = Random.nextInt(0, Int.MAX_VALUE),
                 userid = PreferenceUtils.getString(this.requireContext(), Constants.KEY_USERID).orEmpty(),
@@ -81,10 +83,5 @@ class AddTaskBottomSheet  : BottomSheetDialogFragment() {
             addTaskListener?.invoke(task)
             dismiss()
         }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = FilterBottomSheet()
     }
 }

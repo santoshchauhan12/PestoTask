@@ -22,18 +22,11 @@ interface TaskDao {
     suspend fun deleteTask(note: TaskNote)
 
     @Query("SELECT * FROM task_table WHERE userid = :userId")
-//    @Query("SELECT * FROM task_table ORDER BY status DESC")
     suspend fun getAllNotes(userId : String): MutableList<TaskNote>
-//    suspend fun getAllNotes(): MutableList<TaskNote>
-    // why not use suspend ? because Room does not support LiveData with suspended functions.
-    // LiveData already works on a background thread and should be used directly without using coroutines
 
     @Query("DELETE FROM task_table")
     suspend fun clearTask()
 
     @Query("DELETE FROM task_table WHERE id = :id AND userid = :userId") //you can use this too, for delete note by id.
-//    @Query("DELETE FROM task_table WHERE id = :id") //you can use this too, for delete note by id.
-
     suspend fun deleteTaskById(id: Int, userId: String) : Int
-//    suspend fun deleteTaskById(id: Int) : Int
 }

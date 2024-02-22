@@ -2,7 +2,6 @@ package com.android.pestotask
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -22,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
             FilterBottomSheet.newInstance().also {
                 it.setFilterSelectedListeners {taskFilter ->
-                    mainViewModel.filterTaskList(taskFilter)
+                    mainViewModel.sortByTaskList(taskFilter)
                 }
             }.show(supportFragmentManager, "FilterBottomsheet")
         }
@@ -73,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         binding.ivFilter.setOnClickListener {
             FilterBottomSheet.newInstance().also {
                 it.setFilterSelectedListeners { taskFilter ->
-                    mainViewModel.filterTaskList(taskFilter)
+                    mainViewModel.sortByTaskList(taskFilter)
                 }
             }.show(supportFragmentManager, "FilterBottomsheet")
         }
@@ -107,6 +106,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * this is the place where all the list will be observed from database
+     */
     private fun setObserver() {
         mainViewModel.listNote.observe(this) { taskList ->
             noteList = taskList

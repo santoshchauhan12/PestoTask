@@ -1,24 +1,16 @@
 package com.android.pestotask
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.pestotask.databinding.ActivityMainBinding
 import com.android.pestotask.databinding.ActivityRegistrationBinding
 import com.android.pestotask.ext.hide
 import com.android.pestotask.utils.Constants
 import com.android.pestotask.utils.PreferenceUtils
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import okhttp3.internal.concurrent.Task
 
 
 class RegistrationActivity : AppCompatActivity() {
@@ -34,7 +26,7 @@ class RegistrationActivity : AppCompatActivity() {
         if(PreferenceUtils.getString(this, Constants.KEY_USERID)?.isNotEmpty() == true) {
             val intent = Intent(
                 this@RegistrationActivity,
-                MainActivity::class.java
+                HomeActivity::class.java
             )
             startActivity(intent)
             finish()
@@ -89,7 +81,7 @@ class RegistrationActivity : AppCompatActivity() {
         // create new user or register new user
         mAuth?.createUserWithEmailAndPassword(email, password)
             ?.addOnCompleteListener { task ->
-                if (task.isSuccessful()) {
+                if (task.isSuccessful) {
                     Toast.makeText(
                         applicationContext,
                         "Registration successful!",
@@ -119,7 +111,7 @@ class RegistrationActivity : AppCompatActivity() {
                         .show()
 
                     // hide the progress bar
-                    binding.progressbar.setVisibility(View.GONE)
+                    binding.progressbar.hide()
                 }
             }
     }

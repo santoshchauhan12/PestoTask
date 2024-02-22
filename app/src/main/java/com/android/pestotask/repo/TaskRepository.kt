@@ -1,6 +1,5 @@
 package com.android.pestotask.repo
 
-import androidx.lifecycle.LiveData
 import com.android.pestotask.db.TaskDatabase
 import com.android.pestotask.db.TaskNote
 

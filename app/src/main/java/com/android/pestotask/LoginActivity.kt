@@ -1,17 +1,12 @@
 package com.android.pestotask
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.pestotask.databinding.ActivityLoginBinding
-import com.android.pestotask.databinding.ActivityRegistrationBinding
 import com.android.pestotask.ext.hide
 import com.android.pestotask.ext.show
 import com.android.pestotask.utils.Constants
@@ -84,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
                     // intent to home activity
                     val intent = Intent(
                         this@LoginActivity,
-                        MainActivity::class.java
+                        HomeActivity::class.java
                     )
                     startActivity(intent)
                     finish()

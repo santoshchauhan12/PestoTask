@@ -1,15 +1,11 @@
 package com.android.pestotask.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.pestotask.db.TaskNote
 import com.android.pestotask.model.TaskFilters
-import com.android.pestotask.model.TaskStatus
 import com.android.pestotask.repo.ITaskRepository
-import com.android.pestotask.repo.TaskRepository
-import kotlinx.coroutines.flow.*
 
 class MainViewModel(private val taskRepository: ITaskRepository): ViewModel() {
 
@@ -39,6 +35,9 @@ class MainViewModel(private val taskRepository: ITaskRepository): ViewModel() {
         taskRepository.deleteNote(note)
     }
 
+    /**
+     * delete a task from the list based on id
+     */
     suspend fun deleteNoteById(id: Int) {
         val numDeleted = taskRepository.deleteNoteById(id, userId.orEmpty())
         if (numDeleted.toInt() > 0) {
@@ -54,11 +53,17 @@ class MainViewModel(private val taskRepository: ITaskRepository): ViewModel() {
         taskRepository.clearNote()
     }
 
+    /**
+     * fetch all the task from database
+     */
     suspend fun getAllNotes() {
         _listNote.postValue(taskRepository.getAllNotes(userId.orEmpty()))
     }
 
-    fun filterTaskList(taskFilter: TaskFilters) {
+    /**
+     * sort the list based on title or creation time
+     */
+    fun sortByTaskList(taskFilter: TaskFilters) {
         when(taskFilter) {
             TaskFilters.BYTITLE -> {
                 val modifyList = listNote.value
