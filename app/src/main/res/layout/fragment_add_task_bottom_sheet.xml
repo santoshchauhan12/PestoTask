@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/bottom_sheet_round_top_bg_white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.FilterBottomSheet">
+
+    <TextView
+        android:id="@+id/tv_text_title"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="Add Title"
+        android:gravity="start|center_vertical"
+        android:textSize="20dp"
+        android:textFontWeight="800"
+        app:layout_constraintBottom_toTopOf="@+id/et_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text=""
+        android:paddingHorizontal="10dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="start|center_vertical"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintBottom_toTopOf="@id/tv_add_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv_add_desc"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="Description"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        android:textFontWeight="800"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_add_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_add_desc"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:text=""
+        android:layout_marginBottom="30dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="max 200 character"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

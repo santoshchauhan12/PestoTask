@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25290470501",
+    "project_id": "pestotask",
+    "storage_bucket": "pestotask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25290470501:android:489b2bac9aaf2a95f6028c",
+        "android_client_info": {
+          "package_name": "com.android.pestotask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_3818SDEhGhK2Xz4bXaQkUvWxLFUEKWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

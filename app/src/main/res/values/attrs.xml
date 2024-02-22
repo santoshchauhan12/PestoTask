@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomButtonView">
+        <attr name="enable" format="boolean" />
+        <attr name="loader" format="boolean" />
+        <attr name="text" format="string" />
+        <attr name="show_text_with_start_drawable" format="boolean" />
+        <attr name="start_drawable" format="integer" />
+    </declare-styleable>
+</resources>
